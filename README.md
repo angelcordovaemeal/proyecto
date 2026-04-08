@@ -113,4 +113,4 @@ http://localhost:8080/movement-service/api/v1/movements
 
 ## Probar servicios con postman
 
-- Se pueden ejecutar los requests configurados en la coleccion postman ubicada en: \proyecto\documentacion\Bootcamp Proyecto.postman_collection.json
+- Se pueden ejecutar los requests configurados en la coleccion postman ubicada en: \documentacion\Bootcamp Proyecto.postman_collection.json
