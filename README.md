@@ -39,15 +39,15 @@ Cada microservicio está organizado por capas siguiendo el patron de arquitectur
 
 Todos los microservicios incluyen:
 
-- ✅ Tests de **repositories**
-- ✅ Tests de **application services** (reglas de negocio)
-- ✅ Tests de **clients HTTP**
-- ✅ Tests de **controllers**
-- ✅ Cobertura de código superior al **80 %**
+- Tests de **repositories**
+- Tests de **application services** (reglas de negocio)
+- Tests de **clients HTTP**
+- Tests de **controllers**
+- Cobertura de código superior al **80 %**
 
 ---
 
-## ▶️ Ejecución del proyecto
+## Ejecución del proyecto
 
 Cada microservicio se puede ejecutar de forma independiente:
 
@@ -57,7 +57,7 @@ mvn spring-boot:run
 
 ---
 
-## Ejecución con docker
+## Ejecución con docker (Requiere tener docker instalado)
 
 Clonar el repositorio, abrir consola y levantar el proyecto usando la siguiente lista de comandos: 
 
@@ -65,7 +65,7 @@ Clonar el repositorio, abrir consola y levantar el proyecto usando la siguiente 
 ```bash
 docker-compose up --build
 ```
-- Apagar y eliminar containers desplegado:
+- Apagar y eliminar containers desplegados:
 ```bash
 docker-compose down --remove-orphans
 ```
