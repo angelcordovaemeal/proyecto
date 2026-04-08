@@ -61,13 +61,26 @@ mvn spring-boot:run
 
 Clonar el repositorio, abrir consola y levantar el proyecto usando la siguiente lista de comandos: 
 
-- Levantar servicios: docker-compose up --build
-- Apargar y eliminar containers desplegado: docker-compose down --remove-orphans
-- Eliminar imagenes, dependencias y cache: docker system prune -af
-- Revisar logs de un determinado servicio (ejemplo: customer service): docker logs customer-service
+- Levantar servicios:
+```bash
+docker-compose up --build
+```
+- Apagar y eliminar containers desplegado:
+```bash
+docker-compose down --remove-orphans
+```
+- Eliminar imagenes, dependencias y cache:
+```bash
+ docker system prune -af
+```
+- Revisar logs de un determinado servicio (ejemplo: customer service):
+```bash
+ docker logs customer-service
+```
 
 ## Rutas disponibles al levantar los servicios
 
+```txt
 - **CONFIG SERVER**
 http://localhost:8888/customer-service/default
 http://localhost:8888/account-service/default
@@ -92,11 +105,11 @@ http://localhost:8083/swagger-ui.html
 MOVEMENT (8084)
 http://localhost:8084/swagger-ui.html
 
-
 http://localhost:8080/customer-service/api/v1/customers
 http://localhost:8080/account-service/api/v1/accounts
 http://localhost:8080/credit-service/api/v1/credits
 http://localhost:8080/movement-service/api/v1/movements
+```
 
 ## Probar servicios con postman
 
