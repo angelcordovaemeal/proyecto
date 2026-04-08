@@ -1,0 +1,120 @@
+version: "3.9"
+
+services:
+
+  mongo:
+    image: mongo:7
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - bank_net
+
+  config-server:
+    build:
+      context: .
+      dockerfile: ./config/Dockerfile
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8888/actuator/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - bank_net
+
+  eureka-server:
+    build: ./discover
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      config-server:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8761"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - bank_net
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - bank_net
+
+  customer-service:
+    build: ./customer
+    container_name: customer-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    networks:
+      - bank_net
+      
+  account-service:
+    build: ./account
+    container_name: account-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    networks:
+      - bank_net
+      
+  credit-service:
+    build: ./credit
+    container_name: credit-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    networks:
+      - bank_net
+      
+  movement-service:
+    build: ./movement
+    container_name: movement-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    networks:
+      - bank_net
+
+networks:
+  bank_net:
+    driver: bridge

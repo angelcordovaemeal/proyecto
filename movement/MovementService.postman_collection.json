@@ -1,0 +1,124 @@
+{
+  "info": {
+    "name": "Movement Service",
+    "_postman_id": "1f923ba4-8fc5-4aa9-a0dd-a19b33d0af72",
+    "description": "Full collection for Movement Service covering all operations over accounts and credits",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Deposit",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"DEPOSIT\",\n  \"productId\": \"{{accountId}}\",\n  \"amount\": 200,\n  \"description\": \"Cash deposit\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements/deposit",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements", "deposit"]
+        }
+      }
+    },
+    {
+      "name": "Register Withdrawal",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"WITHDRAWAL\",\n  \"productId\": \"{{accountId}}\",\n  \"amount\": 100,\n  \"description\": \"Cash withdrawal\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements/withdraw",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements", "withdraw"]
+        }
+      }
+    },
+    {
+      "name": "Register Credit Payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CREDIT_PAYMENT\",\n  \"productId\": \"{{creditId}}\",\n  \"amount\": 150,\n  \"description\": \"Monthly credit payment\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements/credit/payment",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements", "credit", "payment"]
+        }
+      }
+    },
+    {
+      "name": "Register Credit Card Consumption",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CREDIT_CONSUMPTION\",\n  \"productId\": \"{{creditCardId}}\",\n  \"amount\": 75,\n  \"description\": \"Restaurant purchase\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements/credit/consumption",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements", "credit", "consumption"]
+        }
+      }
+    },
+    {
+      "name": "Get Movements by Product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements/{{productId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements", "{{productId}}"]
+        }
+      }
+    },
+    {
+      "name": "Get All Movements",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/api/v1/movements",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["api", "v1", "movements"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "accountId", "value": "your-account-id" },
+    { "key": "creditId", "value": "your-credit-id" },
+    { "key": "creditCardId", "value": "your-credit-card-id" },
+    { "key": "productId", "value": "your-product-id" }
+  ]
+}

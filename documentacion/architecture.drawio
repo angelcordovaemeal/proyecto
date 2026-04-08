@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" modified="2026-03-31T22:55:00.000Z" agent="MicroservicesDesignTool" version="29.6.4">
+  <diagram id="architecture-global" name="Arquitectura Global">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="white">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- CONFIG SERVER -->
+        <mxCell id="configServer" value="CONFIG SERVER (Port 8888)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="450" y="40" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- CUSTOMER MS -->
+        <mxCell id="customerLane" value="CUSTOMER SERVICE (8081)" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="260" height="330" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="customerController" value="CustomerController" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="customerLane">
+          <mxGeometry x="15" y="60" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="customerService" value="CustomerService" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="customerLane">
+          <mxGeometry x="15" y="110" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="customerRepo" value="CustomerRepository" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="customerLane">
+          <mxGeometry x="15" y="160" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="customerDB" value="DB_CUSTOMER" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1" vertex="1" parent="customerLane">
+          <mxGeometry x="90" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ACCOUNT MS -->
+        <mxCell id="accountLane" value="ACCOUNT SERVICE (8082)" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="180" width="260" height="330" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="accountController" value="AccountController" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="accountLane">
+          <mxGeometry x="15" y="60" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="accountService" value="AccountService" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="accountLane">
+          <mxGeometry x="15" y="110" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="accountRepo" value="AccountRepository" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="accountLane">
+          <mxGeometry x="15" y="160" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="accountDB" value="DB_ACCOUNT" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1" vertex="1" parent="accountLane">
+          <mxGeometry x="90" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CREDIT MS -->
+        <mxCell id="creditLane" value="CREDIT SERVICE (8083)" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#ffd1dc;strokeColor=#cc6680;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="710" y="180" width="260" height="330" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="creditController" value="CreditController" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="creditLane">
+          <mxGeometry x="15" y="60" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="creditService" value="CreditService" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="creditLane">
+          <mxGeometry x="15" y="110" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="creditRepo" value="CreditRepository" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="creditLane">
+          <mxGeometry x="15" y="160" width="230" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="creditDB" value="DB_CREDIT" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1" vertex="1" parent="creditLane">
+          <mxGeometry x="90" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- MOVEMENT MS -->
+        <mxCell id="movementLane" value="MOVEMENT SERVICE (8084)" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="290" y="560" width="400" height="320" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="movementController" value="MovementController" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="movementLane">
+          <mxGeometry x="15" y="60" width="360" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="movementService" value="MovementApplicationService" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="movementLane">
+          <mxGeometry x="15" y="110" width="360" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="movementRepo" value="MovementRepository" style="rounded=0;whiteSpace=wrap;html=1;fontSize=13;" vertex="1" parent="movementLane">
+          <mxGeometry x="15" y="160" width="360" height="35" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="movementDB" value="DB_MOVEMENT" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1" vertex="1" parent="movementLane">
+          <mxGeometry x="170" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CONNECTIONS -->
+
+        <!-- Config Server → All MS -->
+        <mxCell id="edge1" edge="1" parent="1" source="configServer" target="customerLane" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="1" source="configServer" target="accountLane" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="1" source="configServer" target="creditLane" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="1" source="configServer" target="movementLane" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- MovementService → Credit + Account + Customer -->
+        <mxCell id="edge5" edge="1" parent="1" source="movementService" target="accountService" style="dashed=1;strokeColor=#d79b00;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge6" edge="1" parent="1" source="movementService" target="creditService" style="dashed=1;strokeColor=#cc6680;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge7" edge="1" parent="1" source="movementService" target="customerService" style="dashed=1;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

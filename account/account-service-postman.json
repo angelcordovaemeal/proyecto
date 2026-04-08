@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "Account Service - Bank Microservices",
+    "_postman_id": "a091bdc3-b812-4cfa-b4f8-abc123456789",
+    "description": "Colección para probar el Account Microservice con arquitectura MVC + RxJava + DDD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Savings Account (Personal)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"SAVINGS\",\n  \"customerId\": \"C001\",\n  \"balance\": 0,\n  \"monthlyMovementLimit\": 5,\n  \"holders\": [\"C001\"],\n  \"signers\": []\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/accounts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "Create Current Account (Business)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CURRENT\",\n  \"customerId\": \"B001\",\n  \"balance\": 1500,\n  \"maintenanceFee\": 25,\n  \"holders\": [\"B001\", \"B002\"],\n  \"signers\": [\"FIR001\"]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/accounts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "Find All Accounts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Accept", "value": "application/json"}
+        ],
+        "url": {
+          "raw": "http://localhost:8082/api/accounts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "Find Account By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Accept", "value": "application/json"}
+        ],
+        "url": {
+          "raw": "http://localhost:8082/api/accounts/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_ACCOUNT_ID"
+        }
+      ]
+    },
+    {
+      "name": "Update Account",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CURRENT\",\n  \"customerId\": \"C100\",\n  \"balance\": 500,\n  \"maintenanceFee\": 12,\n  \"holders\": [\"C100\"],\n  \"signers\": []\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/accounts/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_ACCOUNT_ID"
+        }
+      ]
+    },
+    {
+      "name": "Delete Account",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {"key": "Accept", "value": "application/json"}
+        ],
+        "url": {
+          "raw": "http://localhost:8082/api/accounts/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "accounts", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_ACCOUNT_ID"
+        }
+      ]
+    }
+  ]
+}

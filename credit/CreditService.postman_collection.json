@@ -1,0 +1,172 @@
+{
+  "info": {
+    "name": "Credit Service",
+    "_postman_id": "6d520139-7bbf-4b2c-bccf-f17a54f7a5f7",
+    "description": "Full collection for Credit Service covering CRUD + operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Create Personal Credit",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"PERSONAL\",\n  \"customerId\": \"cust-100\",\n  \"creditLimit\": 2000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.12,\n  \"active\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits"]
+        }
+      }
+    },
+
+    {
+      "name": "Create Business Credit",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"BUSINESS\",\n  \"customerId\": \"biz-100\",\n  \"creditLimit\": 50000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.15,\n  \"businessName\": \"TechCorp Inc\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits"]
+        }
+      }
+    },
+
+    {
+      "name": "Create Credit Card",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"CREDIT_CARD\",\n  \"customerId\": \"cust-200\",\n  \"creditLimit\": 8000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.22\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits"]
+        }
+      }
+    },
+
+    {
+      "name": "Get Credit by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits/{{creditId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits", "{{creditId}}"]
+        }
+      }
+    },
+
+    {
+      "name": "List Credits by Customer ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits/customer/{{customerId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits", "customer", "{{customerId}}"]
+        }
+      }
+    },
+
+    {
+      "name": "Get All Credits",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits"]
+        }
+      }
+    },
+
+    {
+      "name": "Pay Credit (Loan or Credit Card)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 300\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits/{{creditId}}/pay",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits", "{{creditId}}", "pay"]
+        }
+      }
+    },
+
+    {
+      "name": "Credit Card Consumption",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 150,\n  \"description\": \"Restaurant payment\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits/{{creditId}}/consume",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits", "{{creditId}}", "consume"]
+        }
+      }
+    },
+
+    {
+      "name": "Delete Credit",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8082/api/v1/credits/{{creditId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["api", "v1", "credits", "{{creditId}}"]
+        }
+      }
+    }
+
+  ],
+  "variable": [
+    { "key": "creditId", "value": "your-credit-id-here" },
+    { "key": "customerId", "value": "your-customer-id-here" }
+  ]
+}

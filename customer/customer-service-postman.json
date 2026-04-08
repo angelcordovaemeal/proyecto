@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "Customer Service - Bank Microservices",
+    "_postman_id": "c19c5562-8f1e-4bd8-a1ff-123456789abc",
+    "description": "Colección para probar el Customer Service con arquitectura MVC + RxJava + DDD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Personal Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"PERSONAL\",\n  \"documentNumber\": \"12345678\",\n  \"name\": \"Pedro\",\n  \"lastName\": \"Pérez\",\n  \"email\": \"pedro@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers"]
+        }
+      }
+    },
+    {
+      "name": "Create Business Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"BUSINESS\",\n  \"documentNumber\": \"20512345678\",\n  \"name\": \"TechCorp SAC\",\n  \"authorizedSigners\": [\"EMP01\", \"EMP02\"],\n  \"email\": \"contact@techcorp.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers"]
+        }
+      }
+    },
+    {
+      "name": "Find All Customers",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/customers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers"]
+        }
+      }
+    },
+    {
+      "name": "Find Customer By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/customers/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_CUSTOMER_ID"
+        }
+      ]
+    },
+    {
+      "name": "Update Customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"PERSONAL\",\n  \"documentNumber\": \"87654321\",\n  \"name\": \"Carlos\",\n  \"lastName\": \"Lopez\",\n  \"email\": \"carlos@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/customers/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_CUSTOMER_ID"
+        }
+      ]
+    },
+    {
+      "name": "Delete Customer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/customers/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["api", "customers", "{{id}}"]
+        }
+      },
+      "variable": [
+        {
+          "key": "id",
+          "value": "REPLACE_WITH_CUSTOMER_ID"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.6">
+  <diagram id="customer-service-ddd" name="Customer Service - DDD Architecture">
+    <mxGraphModel dx="973" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="white" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="customerLane" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;fontStyle=1" value="CUSTOMER SERVICE (8081)" vertex="1">
+          <mxGeometry height="590" width="900" x="220" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="customerLane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" value="CustomerController&#xa;/api/v1/customers" vertex="1">
+          <mxGeometry height="70" width="260" x="20" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="appService" parent="customerLane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" value="CustomerApplicationService&#xa;(business logic)" vertex="1">
+          <mxGeometry height="70" width="260" x="20" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="domainCustomer" parent="customerLane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="Customer&lt;br&gt;Model" vertex="1">
+          <mxGeometry height="70" width="260" x="330" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="domainRepo" parent="customerLane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="CustomerRepository&#xa;(Domain Interface)" vertex="1">
+          <mxGeometry height="70" width="260" x="20" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="mongoAdapter" parent="customerLane" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" value="MongoCustomerRepository&#xa;(implements CustomerRepository)" vertex="1">
+          <mxGeometry height="70" width="260" x="20" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="customerLane" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1;fontSize=14" value="MongoDB&#xa;customers collection" vertex="1">
+          <mxGeometry height="80" width="120" x="90" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="customerLane" source="controller" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;" target="appService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="customerLane" source="appService" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#cc9900;" target="domainRepo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="customerLane" source="domainRepo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;" target="mongoAdapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="customerLane" source="mongoAdapter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;" target="db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="configServer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1" value="CONFIG SERVER (8888)" vertex="1">
+          <mxGeometry height="70" width="220" x="570" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="configServer" style="dashed=1;strokeColor=#82b366;" target="customerLane">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.6">
+  <diagram id="movement-sequence" name="Movement Service - Sequence Diagram">
+    <mxGraphModel dx="915" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" background="white" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" value="Client" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1" value="MovementController&#xa;/api/v1/movements" vertex="1">
+          <mxGeometry height="60" width="200" x="480" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1" value="MovementApplicationService" vertex="1">
+          <mxGeometry height="60" width="240" x="760" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="repository" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14" value="MongoMovementRepository" vertex="1">
+          <mxGeometry height="60" width="240" x="1070" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="1" style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1;fontSize=14" value="MongoDB&#xa;movements" vertex="1">
+          <mxGeometry height="90" width="140" x="1440" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline1" edge="1" parent="1" source="client" style="strokeColor=#d6b656;dashed=1;">
+          <mxGeometry height="700" relative="1" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline2" edge="1" parent="1" source="controller" style="strokeColor=#d6b656;dashed=1;">
+          <mxGeometry height="700" relative="1" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline3" edge="1" parent="1" source="service" style="strokeColor=#d79b00;dashed=1;">
+          <mxGeometry height="700" relative="1" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline4" edge="1" parent="1" source="repository" style="strokeColor=#b85450;dashed=1;">
+          <mxGeometry height="700" relative="1" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lifeline5" edge="1" parent="1" source="db" style="strokeColor=#9673a6;dashed=1;">
+          <mxGeometry height="700" relative="1" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=13" target="controller" value="POST /movements/deposit">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="390" />
+              <mxPoint x="580" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d2" edge="1" parent="1" source="controller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=13" target="service" value="registerDeposit(movement)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="390" />
+              <mxPoint x="880" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d3" edge="1" parent="1" source="service" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc9900;fontSize=13" target="repository" value="save(movement)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="390" />
+              <mxPoint x="1190" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4" edge="1" parent="1" source="repository" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=13" target="db" value="insert movement">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="390" />
+              <mxPoint x="1510" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d5" edge="1" parent="1" source="db" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;fontSize=13" target="repository" value="saved">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1510" y="550" />
+              <mxPoint x="1190" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d6" edge="1" parent="1" source="repository" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc9900;fontSize=13" target="service" value="return saved">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1190" y="550" />
+              <mxPoint x="880" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d7" edge="1" parent="1" source="service" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=13" target="controller" value="SuccessResponse">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="550" />
+              <mxPoint x="580" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d8" edge="1" parent="1" source="controller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;fontSize=13" target="client" value="201 Created">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="550" />
+              <mxPoint x="90" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="MicroservicesArchitect/1.0" version="29.6.6">
+  <diagram id="movement-service-ddd" name="Movement Service - DDD Architecture">
+    <mxGraphModel dx="973" dy="583" grid="1" gridSize="10" guides="1" tooltips="1"
+                  connect="1" arrows="1" fold="1" page="1" pageScale="1"
+                  pageWidth="1600" pageHeight="1000" background="white" math="0" shadow="0">
+
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- MOVEMENT SERVICE SWIMLANE -->
+        <mxCell id="movementLane" parent="1"
+                style="swimlane;whiteSpace=wrap;html=1;startSize=40;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=16;fontStyle=1"
+                value="MOVEMENT SERVICE (8084)" vertex="1">
+          <mxGeometry x="220" y="230" width="900" height="590" as="geometry"/>
+        </mxCell>
+
+        <!-- CONTROLLER -->
+        <mxCell id="controller" parent="movementLane"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1"
+                value="MovementController&#xa;/api/v1/movements" vertex="1">
+          <mxGeometry x="20" y="70" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- APPLICATION SERVICE -->
+        <mxCell id="appService" parent="movementLane"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;fontStyle=1"
+                value="MovementApplicationService&#xa;(business logic)" vertex="1">
+          <mxGeometry x="20" y="180" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- DOMAIN MODEL -->
+        <mxCell id="domainModel" parent="movementLane"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13"
+                value="Movement&#xa;Model" vertex="1">
+          <mxGeometry x="330" y="280" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- DOMAIN REPOSITORY -->
+        <mxCell id="domainRepo" parent="movementLane"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13"
+                value="MovementRepository&#xa;(Domain Interface)" vertex="1">
+          <mxGeometry x="20" y="280" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- INFRASTRUCTURE ADAPTER -->
+        <mxCell id="mongoAdapter" parent="movementLane"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13"
+                value="MongoMovementRepository&#xa;(implements MovementRepository)" vertex="1">
+          <mxGeometry x="20" y="390" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- DATABASE -->
+        <mxCell id="db" parent="movementLane"
+                style="shape=mxgraph.flowchart.database;strokeWidth=2;whiteSpace=wrap;html=1;fontSize=14"
+                value="MongoDB&#xa;movements collection" vertex="1">
+          <mxGeometry x="90" y="490" width="120" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- CONFIG SERVER -->
+        <mxCell id="configServer" parent="1"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1"
+                value="CONFIG SERVER (8888)" vertex="1">
+          <mxGeometry x="570" y="130" width="220" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- CONNECTIONS -->
+        <mxCell id="edge1" edge="1" parent="movementLane" source="controller" target="appService"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#6c8ebf;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="movementLane" source="appService" target="domainRepo"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#cc9900;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="movementLane" source="domainRepo" target="mongoAdapter"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="movementLane" source="mongoAdapter" target="db"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#b85450;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge5" edge="1" parent="1" source="configServer" target="movementLane"
+                style="dashed=1;strokeColor=#82b366;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+
+    </mxGraphModel>
+  </diagram>
+</mxfile>

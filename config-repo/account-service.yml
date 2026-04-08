@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+      
+spring:
+  application:
+    name: account-service
+
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/accountdb
+
+
+customer:
+  service:
+    url: http://customer-service:8081/api/v1/customers
+    
+credit:
+  service:
+    url: http://credit-service:8083/api/v1/credits
+
+account:
+  vip:
+    minimumAverageDailyBalance: 1000.0

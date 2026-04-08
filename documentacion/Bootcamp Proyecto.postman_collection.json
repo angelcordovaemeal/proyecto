@@ -1,0 +1,920 @@
+{
+  "info": {
+    "_postman_id": "3fb7bdc5-2745-4ddb-8673-c5902a0ec9db",
+    "name": "Bootcamp Proyecto",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53152513",
+    "_collection_link": "https://go.postman.co/collection/53152513-3fb7bdc5-2745-4ddb-8673-c5902a0ec9db?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "customer",
+      "item": [
+        {
+          "name": "Create Personal Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"PERSONAL\",\n  \"profile\": \"VIP\",\n  \"documentNumber\": \"12345678\",\n  \"name\": \"Juan\",\n  \"lastName\": \"Perez\",\n  \"email\": \"juan.perez@vip.com\"\n}"
+            },
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Standard Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"PERSONAL\",\n  \"profile\": \"STANDARD\",\n  \"documentNumber\": \"12345679\",\n  \"name\": \"Rolando\",\n  \"lastName\": \"Cueva\",\n  \"email\": \"rolando.cueva@standard.com\"\n}"
+            },
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Business Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"BUSINESS\",\n  \"profile\": \"PYME\",\n  \"documentNumber\": \"20077129371\",\n  \"name\": \"RB SAC\",\n  \"authorizedSigners\": [],\n  \"email\": \"contact@rb.com\"\n}"
+            },
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find All Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find Customer By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers/69c365f645d0203ed90d2ebc",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "69c365f645d0203ed90d2ebc"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_CUSTOMER_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_CUSTOMER_ID"
+            }
+          ]
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"PERSONAL\",\n  \"profile\": \"VIP\",\n  \"documentNumber\": \"87858698\",\n  \"name\": \"Arnold\",\n  \"lastName\": \"Mattos\",\n  \"email\": \"arnold@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers/{{id}}",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_CUSTOMER_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_CUSTOMER_ID"
+            }
+          ]
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{customer_url}}/api/v1/customers/{{id}}",
+              "host": [
+                "{{customer_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_CUSTOMER_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_CUSTOMER_ID"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "Create Savings Account (Personal)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"SAVINGS\",\n    \"customerId\": \"69d337f0c94ec6154c1af0cd\",\n    \"balance\": 0,\n    \"monthlyMovementLimit\": 5,\n    \"holders\": [],\n    \"signers\": [],\n    \"openingMinAmount\": 0,\n    \"freeMovements\": 2,\n    \"movementCommission\": 5,\n    \"requiredAverageDailyBalance\": 100\n}"
+            },
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Savings Account (Standard)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"SAVINGS\",\n    \"customerId\": \"69d09a369b95d876963ffbe5\",\n    \"balance\": 0,\n    \"monthlyMovementLimit\": 5,\n    \"holders\": [],\n    \"signers\": [],\n    \"openingMinAmount\": 0,\n    \"freeMovements\": 2,\n    \"movementCommission\": 0.002,\n    \"requiredAverageDailyBalance\": 100\n}"
+            },
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Current Account (Business)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"type\": \"CURRENT\",\n    \"customerId\": \"69d33852c94ec6154c1af0ce\",\n    \"balance\": 0,\n    \"maintenanceFee\": 25,\n    \"holders\": [],\n    \"signers\": [],\n    \"openingMinAmount\": 0,\n    \"freeMovements\": 1,\n    \"movementCommission\": 10,\n    \"maintenanceCommission\": 150\n}"
+            },
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find All Accounts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find Account By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts/{{id}}",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_ACCOUNT_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_ACCOUNT_ID"
+            }
+          ]
+        },
+        {
+          "name": "Update Account",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"customerId\": \"69d32954f019b030ef216894\",\n    \"type\": \"SAVINGS\",\n    \"balance\": 0.0,\n    \"holders\": [],\n    \"signers\": [],\n    \"openingMinAmount\": 0.0,\n    \"freeMovements\": 2,\n    \"movementCommission\": 5.0,\n    \"requiredAverageDailyBalance\": 1000.0,\n    \"maintenanceCommission\": 0.0,\n    \"movementCount\": 0,\n    \"monthlyMovementLimit\": 5\n}"
+            },
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts/{{id}}",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_ACCOUNT_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_ACCOUNT_ID"
+            }
+          ]
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{account_url}}/api/v1/accounts/{{id}}",
+              "host": [
+                "{{account_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{id}}"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "REPLACE_WITH_ACCOUNT_ID"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "REPLACE_WITH_ACCOUNT_ID"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "credit",
+      "item": [
+        {
+          "name": "Create Personal Credit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"PERSONAL\",\n  \"customerId\": \"69cc75d519a8c60d7677bcd9\",\n  \"creditLimit\": 8000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.12,\n  \"active\": true\n}"
+            },
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Business Credit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"BUSINESS\",\n  \"customerId\": \"69cc75ec19a8c60d7677bcda\",\n  \"creditLimit\": 50000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.15,\n  \"businessName\": \"TechCorp Inc\"\n}"
+            },
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Credit Card",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CREDIT_CARD\",\n  \"customerId\": \"69d33852c94ec6154c1af0ce\",\n  \"creditLimit\": 2000,\n  \"usedAmount\": 0,\n  \"interestRate\": 0.72\n}"
+            },
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Credit by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits/{{creditId}}",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits",
+                "{{creditId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Credits by Customer ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits/customer/{{customerId}}",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Customer has credits?",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits/card/exists/{{customerId}}",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits",
+                "card",
+                "exists",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Credits",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Credit",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{credit_url}}/api/v1/credits/{{creditId}}",
+              "host": [
+                "{{credit_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "credits",
+                "{{creditId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "movement",
+      "item": [
+        {
+          "name": "Register Deposit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"DEPOSIT\",\n  \"productId\": \"{{accountId}}\",\n  \"amount\": 50,\n  \"description\": \"Cash deposit\"\n}"
+            },
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/deposit",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "deposit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Transfer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAccountId\": \"69d33813d0e9b329ec8a8bd2\",\n  \"toAccountId\": \"69d33876d0e9b329ec8a8bd3\",\n  \"amount\": 100\n}"
+            },
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/transfer",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "transfer"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Withdrawal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"WITHDRAWAL\",\n  \"productId\": \"{{accountId}}\",\n  \"amount\": 50,\n  \"description\": \"Cash withdrawal\"\n}"
+            },
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/withdraw",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "withdraw"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Credit Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CREDIT_PAYMENT\",\n  \"productId\": \"{{creditId}}\",\n  \"amount\": 50,\n  \"description\": \"Monthly credit payment\"\n}"
+            },
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/credit/payment",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "credit",
+                "payment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Credit Card Consumption",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CREDIT_CONSUMPTION\",\n  \"productId\": \"{{creditCardId}}\",\n  \"amount\": 75,\n  \"description\": \"Restaurant purchase\"\n}"
+            },
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/credit/consumption",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "credit",
+                "consumption"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movements by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/{{productId}}",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Movements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "General Report",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/reports/general?start=2026-04-07T00:00:00&end=2026-04-08T23:59:59",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "reports",
+                "general"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-04-07T00:00:00"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-04-08T23:59:59"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Last 10 movements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{movement_url}}/api/v1/movements/reports/last-10/{{id}}",
+              "host": [
+                "{{movement_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "movements",
+                "reports",
+                "last-10",
+                "{{id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "customer_url",
+      "value": ""
+    },
+    {
+      "key": "account_url",
+      "value": ""
+    },
+    {
+      "key": "credit_url",
+      "value": ""
+    },
+    {
+      "key": "movement_url",
+      "value": ""
+    }
+  ]
+}
