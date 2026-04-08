@@ -53,6 +53,7 @@ Cada microservicio se puede ejecutar de forma independiente:
 
 ```bash
 mvn spring-boot:run
+```
 
 ---
 
